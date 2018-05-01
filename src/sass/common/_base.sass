@@ -1,0 +1,73 @@
+// common grid
+#plans-list
+    min-width: 550px
+    max-width: 750px
+    margin: 0 auto
+    padding-top: 50px
+    padding-left: 40px
+    padding-right: 10px
+
+.grid
+    @include flex
+
+.left
+    width: 80%
+    position: relative
+    padding: 10px 0
+    &:before
+        content: ''
+        display: block
+        width: 6px
+        height: 100%
+        position: absolute
+        top: 0
+        left: -40px
+    &.active:before
+        background-color: $green
+    &.inactive:before
+        background-color: $red
+    &.renewal:before
+        background-color: $yellow
+    &.left-medium
+        width: 70%
+
+.right
+    width: 20%
+    text-align: right
+    &.right-medium
+        width: 30%
+
+// common tags
+li:not(:last-child)
+    margin-bottom: 15px
+
+button
+    border: none
+    outline: none
+    cursor: pointer
+
+// common classes
+.update
+    background: url("../img/icons/icon-update.png") no-repeat
+    background-size: 100%
+    width: 10px
+    height: 8px
+    display: inline-block
+    vertical-align: middle
+
+.icon-gift
+    position: relative
+    padding-left: 15px
+    &:before
+        content: ''
+        display: block
+        background: url("../img/icons/icon-gift.png") no-repeat
+        background-size: 100%
+        width: 10px
+        height: 10px
+        position: absolute
+        top: 2px
+        left: 0px
+
+.left-align
+    text-align: left

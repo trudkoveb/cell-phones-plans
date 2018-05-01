@@ -1,0 +1,85 @@
+// effect for transition name 'slide-fade'
+.slide-fade-enter-active
+    transition: all .3s ease
+
+.slide-fade-leave-active
+    transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0)
+
+.slide-fade-enter, .slide-fade-leave-to
+    transform: translate3d(0px,-30px,0px)
+    opacity: 0
+
+//
+.stock__wrapper
+    width: 100%
+    margin-top: 10px
+    background-color: $bg-light-grey
+    padding: 15px 20px
+
+.description__name, .stock__name, .stock__price
+    font-family: $font-reg
+    font-size: 18px
+.description__name, .stock__name
+    @include cutTitle
+
+.description__time, .stock__type, .stock__extra, .stock__warning
+    @include smallText
+    color: $light-grey
+
+.stock__type
+    margin-right: 5px
+
+.description__size
+    font-family: $font-reg
+    font-size: 14px
+    color: $dark-grey
+    margin-bottom: 5px
+
+.description__current__size, .description__maximum__size
+    font-family: $font-bold
+    font-size: 18px
+
+.description__current__size
+    color: $green
+
+.description__maximum__size
+    color: $dark-grey
+
+.description__scale__wrapper
+    width: 100%
+    height: 10px
+    background-color: $bg-grey
+
+.description__scale
+    height: inherit
+    background-color: $green
+    width: 80%
+
+.stock__name, .stock__price
+    font-size: 16px
+
+.stock__info
+    @include smallText
+
+.stock__warning__wrapper
+    width: 100%
+    background-color: $bg-grey
+    padding: 10px 10px 10px 30px
+    margin-top: 5px
+    position: relative
+    &:before
+        content: 'i'
+        display: block
+        position: absolute
+        top: 50%
+        left: 12px
+        transform: translateY(-50%)
+        background-color: #3988a1
+        width: 11px
+        height: 11px
+        border-radius: 7px
+        font-size: 10px
+        line-height: 10px
+        color: #fff
+        font-family: $rockwell-reg
+        text-align: center

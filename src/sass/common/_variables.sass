@@ -1,0 +1,42 @@
+// fonts
+$font-reg: 'RobotoRegular'
+$font-light: 'RobotoLight'
+$font-bold: 'RobotoBold'
+
+$rockwell-reg: 'RockwellRegular'
+
+// colours
+$dark: #000
+$green: #8cba00
+$red: #dc795e
+$yellow: #e9cd44
+
+$light-grey: #989898
+$dark-grey: #666666
+
+$bg-light-grey: #e7eaf2
+$bg-grey: #dcdfe8
+
+// mixins
+@mixin flex
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    align-items: center
+
+@mixin bigText
+    font-family: $font-reg
+    font-size: 20px
+    line-height: 23px
+    color: $dark
+
+@mixin smallText
+    font-family: $font-light
+    font-size: 12px
+
+@mixin cutTitle
+    max-width: 100%
+    overflow: hidden
+    display: inline-block
+    white-space: nowrap
+    text-overflow: ellipsis

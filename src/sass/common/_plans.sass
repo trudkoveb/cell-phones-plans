@@ -1,0 +1,44 @@
+
+.plan__status, .plan__type, .plan__info, .plan__duration, .plan__extra
+    @include smallText
+
+.plan__name__wrapper
+    &.clickable
+    pointer-events: auto
+    cursor: pointer
+    position: relative
+    &:after
+        content: ''
+        display: block
+        background: url("../img/icons/icon-arrow-up.png") no-repeat
+        background-size: 100%
+        width: 13px
+        height: 13px
+        position: absolute
+        top: -2px
+        left: -23px
+        transform: rotate(180deg)
+        transition: 0.5s
+    &.open:after
+        transform: rotate(360deg)
+        transition: 0.5s
+
+.plan__name
+    @include bigText
+    @include cutTitle
+    margin-right: 10px
+    pointer-events: none
+    vertical-align: text-bottom
+
+.plan__status
+    color: $green
+
+.plan__type
+    color: $light-grey
+    margin-right: 5px
+
+.plan__price
+    @include bigText
+
+.plan__duration, .plan__extra
+    color: $light-grey

@@ -1,0 +1,52 @@
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    title Тарифные планы
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='css/style.min.css')
+  body
+    #plans-list
+        ul
+            li(v-for="plan in plans", class="grid")
+                div(class="left", v-bind:class="plan.class")
+                    div
+                        span.plan__name__wrapper(v-if="plan.dropdown", @click="toggle(plan)", v-bind:class="{ 'clickable': plan.dropdown, open: plan.isOpen }")
+                            span.plan__name {{ plan.name }}
+                        span.plan__name(v-else) {{ plan.name }}
+                        span.plan__status {{ plan.status }}
+                    div
+                        span.plan__type {{ plan.type }}
+                        span.plan__info {{ plan.info }}
+                    div.plan__info.icon-gift(v-if="plan.dropdown") {{ plan.currentStock }}
+                div.right
+                    div.plan__price {{ plan.price }}
+                    div.plan__duration {{ plan.duration }}
+                    div.plan__extra {{ plan.priceDesc }}
+                transition(name="slide-fade")
+                    ul(v-if="plan.show", class="stock__wrapper")
+                        li(v-for="stock in stocks")
+                            div(v-if="stock.planDesc", class="grid")
+                                div.left.left-medium
+                                    div.description__name {{ stock.name }}
+                                    div #[button.update] #[span.description__time {{ stock.time }}]
+                                div.right.right-medium.left-align
+                                    div.description__size #[span.description__current__size {{ stock.currentSize }}] из #[span.description__maximum__size {{ stock.maxSize }}] Гб/30 дн.
+                                    div.description__scale__wrapper
+                                        div.description__scale
+                            div(v-if="stock.stockDesc", class="grid")
+                                div.left.left-medium
+                                    div
+                                        span.stock__name.icon-gift {{ stock.name }}
+                                    div
+                                        span.stock__type {{ stock.type }}
+                                        span.stock__info {{ stock.info }}
+                                div.right.right-medium
+                                    div.stock__price {{ stock.price }}
+                                    div.stock__extra {{ stock.duration }}
+                                div.stock__warning__wrapper
+                                    p.stock__warning {{ stock.warning }}
+
+
+    script(src="js/libs.min.js")
+    script(src="js/app.js")
